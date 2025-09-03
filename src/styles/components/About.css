@@ -1,0 +1,181 @@
+/* About Component Styles */
+.about {
+  padding: 5rem 0;
+  background: white;
+}
+
+.about-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .about-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    padding: 0 2rem;
+  }
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 3rem;
+  }
+}
+
+.about-title-gradient {
+  background: linear-gradient(to right, #2563eb, #9333ea);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.about-subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.about-content {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-story {
+  /* Story section styles */
+}
+
+.story-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+.story-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.about-skills {
+  /* Skills section styles */
+}
+
+.skills-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  /* Individual skill item */
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skill-icon {
+  color: #2563eb;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: #374151;
+}
+
+.skill-percentage {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.skill-bar-container {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  height: 0.5rem;
+}
+
+.skill-bar {
+  background: linear-gradient(to right, #2563eb, #9333ea);
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: width 1s ease;
+}
+
+.technologies {
+  margin-top: 5rem;
+}
+
+.technologies-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1f2937;
+}
+
+.technologies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tech-tag {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #eff6ff, #faf5ff);
+  border: 1px solid #dbeafe;
+  border-radius: 9999px;
+  color: #374151;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-tag:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}

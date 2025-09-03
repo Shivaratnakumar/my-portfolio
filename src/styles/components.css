@@ -1,0 +1,7 @@
+/* Import all component styles */
+@import './components/Navigation.css';
+@import './components/Hero.css';
+@import './components/About.css';
+@import './components/Projects.css';
+@import './components/Contact.css';
+@import './components/Footer.css';
