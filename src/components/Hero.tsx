@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react'
+import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react'
 import Image from 'next/image'
 import { scrollToNext, scrollToProjects, scrollToContact, socialLinks } from '@/utils/hero'
 import '@/styles/components/Hero.css'
@@ -104,6 +104,17 @@ const Hero = () => {
             >
               Get In Touch
             </motion.button>
+
+            <motion.a
+              href="/resume/Shivaratnakumar_Patil_Resume.pdf"
+              download="Shivaratnakumar_Patil_Resume.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="cta-button-resume"
+            >
+              <Download size={20} />
+              Download Resume
+            </motion.a>
           </motion.div>
 
           {/* Social Links */}

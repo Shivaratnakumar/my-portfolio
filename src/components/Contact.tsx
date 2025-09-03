@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, CheckCircle, Download } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
 const Contact = () => {
@@ -123,6 +123,25 @@ const Contact = () => {
                   </div>
                 </motion.a>
               ))}
+              
+              {/* Resume Download */}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                href="/resume/Shivaratnakumar_Patil_Resume.pdf"
+                download="Shivaratnakumar_Patil_Resume.pdf"
+                className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 group"
+              >
+                <div className="p-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full text-white group-hover:scale-110 transition-transform duration-300">
+                  <Download size={20} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">Resume</h4>
+                  <p className="text-gray-600">Download my resume (PDF)</p>
+                </div>
+              </motion.a>
             </div>
           </motion.div>
 

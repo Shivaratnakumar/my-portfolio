@@ -14,8 +14,12 @@ const Navigation = () => {
     return handleScroll(setScrolled)
   }, [])
 
-  const handleNavClick = (href: string) => {
-    scrollToSection(href)
+  const handleNavClick = (item: { href: string; isExternal?: boolean }) => {
+    if (item.isExternal) {
+      window.open(item.href, '_blank')
+    } else {
+      scrollToSection(item.href)
+    }
     setIsOpen(false)
   }
 
@@ -46,7 +50,7 @@ const Navigation = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => handleNavClick(item)}
                   className="nav-item"
                 >
                   {item.name}
@@ -87,7 +91,7 @@ const Navigation = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    onClick={() => handleNavClick(item.href)}
+                    onClick={() => handleNavClick(item)}
                     className="mobile-nav-item"
                   >
                     {item.name}

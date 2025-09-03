@@ -92,7 +92,7 @@ const AdminMessages = () => {
     setLoginError('')
     
     // Simple password check - you can change this password
-    const adminPassword = 'admin123' // Change this to your desired password
+    const adminPassword = 'Shiv@#123!' // Change this to your desired password
     
     if (password === adminPassword) {
       setIsAuthenticated(true)

@@ -210,6 +210,28 @@
   color: #2563eb;
 }
 
+.cta-button-resume {
+  background: linear-gradient(to right, #059669, #10b981);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button-resume:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to right, #047857, #059669);
+}
+
 .hero-social {
   display: flex;
   justify-content: center;

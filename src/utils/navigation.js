@@ -21,4 +21,5 @@ export const navItems = [
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
+  { name: 'Resume', href: '/resume/Shivaratnakumar_Patil_Resume.pdf', isExternal: true },
 ];
