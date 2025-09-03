@@ -84,7 +84,7 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+            Have a project in mind? Let&apos;s discuss how we can work together to bring your ideas to life.
           </p>
         </motion.div>
 
@@ -96,9 +96,9 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold mb-8 text-gray-800">Let's Connect</h3>
+            <h3 className="text-3xl font-bold mb-8 text-gray-800">Let&apos;s Connect</h3>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              I'm always interested in new opportunities and exciting projects. 
+              I&apos;m always interested in new opportunities and exciting projects. 
               Whether you have a question, want to collaborate, or just want to say hi, 
               feel free to reach out!
             </p>

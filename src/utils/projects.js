@@ -82,10 +82,9 @@ export const insertSampleProjects = async (supabase) => {
     }));
     
     // Insert sample projects
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('projects')
-      .insert(projectsToInsert)
-      .select();
+      .insert(projectsToInsert);
     
     if (error) {
       console.error('Error inserting sample projects:', error);

@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import { ExternalLink, Github, Filter, Plus, Database } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
-import { sampleProjects, insertSampleProjects, getProjectsByCategory } from '@/utils/projects'
+import { insertSampleProjects } from '@/utils/projects'
 
 interface Project {
   id: number
@@ -28,13 +28,39 @@ const Projects = () => {
 
   const filters = ['All', 'Web App', 'Mobile', 'Full Stack']
 
+  const filterProjects = useCallback(() => {
+    let filtered: Project[] = []
+    
+    if (activeFilter === 'All') {
+      filtered = projects
+    } else if (activeFilter === 'Web App') {
+      filtered = projects.filter(project => 
+        project.category === 'Web App' || 
+        project.tech_stack.some(tech => tech.toLowerCase().includes('web'))
+      )
+    } else if (activeFilter === 'Mobile') {
+      filtered = projects.filter(project => 
+        project.category === 'Mobile' || 
+        project.tech_stack.some(tech => tech.toLowerCase().includes('mobile'))
+      )
+    } else if (activeFilter === 'Full Stack') {
+      filtered = projects.filter(project => 
+        project.category === 'Full Stack' || 
+        project.tech_stack.some(tech => tech.toLowerCase().includes('full'))
+      )
+    }
+    
+    console.log(`Filter: ${activeFilter}, Projects: ${projects.length}, Filtered: ${filtered.length}`)
+    setFilteredProjects(filtered)
+  }, [projects, activeFilter])
+
   useEffect(() => {
     fetchProjects()
   }, [])
 
   useEffect(() => {
     filterProjects()
-  }, [projects, activeFilter])
+  }, [filterProjects])
 
   const fetchProjects = async () => {
     try {
@@ -64,31 +90,7 @@ const Projects = () => {
     }
   }
 
-  const filterProjects = () => {
-    let filtered = []
-    
-    if (activeFilter === 'All') {
-      filtered = projects
-    } else if (activeFilter === 'Web App') {
-      filtered = projects.filter(project => 
-        project.category === 'Web App' || 
-        project.tech_stack.some(tech => tech.toLowerCase().includes('web'))
-      )
-    } else if (activeFilter === 'Mobile') {
-      filtered = projects.filter(project => 
-        project.category === 'Mobile' || 
-        project.tech_stack.some(tech => tech.toLowerCase().includes('mobile'))
-      )
-    } else if (activeFilter === 'Full Stack') {
-      filtered = projects.filter(project => 
-        project.category === 'Full Stack' || 
-        project.tech_stack.some(tech => tech.toLowerCase().includes('full'))
-      )
-    }
-    
-    console.log(`Filter: ${activeFilter}, Projects: ${projects.length}, Filtered: ${filtered.length}`)
-    setFilteredProjects(filtered)
-  }
+
 
   const handleAddSampleData = async () => {
     try {
@@ -108,26 +110,7 @@ const Projects = () => {
     }
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
-  }
 
   if (loading) {
     return (
@@ -230,7 +213,7 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Project+Image'
+                    (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Project+Image'
                   }}
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -284,7 +267,7 @@ const Projects = () => {
           >
             <Filter className="mx-auto mb-4 text-gray-400" size={48} />
             <h3 className="text-xl font-semibold text-gray-600 mb-2">No Projects Found</h3>
-            <p className="text-gray-500 text-lg">No projects match the "{activeFilter}" filter.</p>
+            <p className="text-gray-500 text-lg">No projects match the &quot;{activeFilter}&quot; filter.</p>
             <button
               onClick={() => setActiveFilter('All')}
               className="mt-4 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"

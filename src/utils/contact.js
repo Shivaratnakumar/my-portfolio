@@ -28,17 +28,16 @@ export const handleFormSubmit = async (e, formData, setIsSubmitting, setIsSubmit
   try {
     console.log('Attempting to insert data into Supabase...');
     const { supabase } = await import('@/lib/supabase');
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('contact_messages')
-      .insert([formData])
-      .select();
+      .insert([formData]);
 
     if (error) {
       console.error('Supabase error:', error);
       throw error;
     }
 
-    console.log('Successfully inserted data:', data);
+    console.log('Successfully inserted data');
     setIsSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
     

@@ -49,7 +49,7 @@ const Hero = () => {
               className="hero-title"
             >
               <span className="hero-title-gradient-1">
-                Hi, I'm{' '}
+                Hi, I&apos;m{' '}
               </span>
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}

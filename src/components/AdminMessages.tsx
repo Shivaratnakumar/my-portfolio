@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Calendar, User, MessageSquare, Trash2, Eye, EyeOff, RefreshCw } from 'lucide-react'
+import { Mail, Calendar, User, MessageSquare, Trash2, EyeOff, RefreshCw } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
 interface Message {
