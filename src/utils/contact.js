@@ -3,7 +3,6 @@
 // Test function to verify Supabase connection
 export const testSupabaseConnection = async (supabase) => {
   try {
-    console.log('Testing Supabase connection...');
     const { data, error } = await supabase
       .from('contact_messages')
       .select('count')
@@ -14,7 +13,6 @@ export const testSupabaseConnection = async (supabase) => {
       return false;
     }
     
-    console.log('Supabase connection successful!');
     return true;
   } catch (error) {
     console.error('Supabase connection test error:', error);
@@ -22,11 +20,9 @@ export const testSupabaseConnection = async (supabase) => {
   }
 };
 export const handleFormSubmit = async (e, formData, setIsSubmitting, setIsSubmitted, setFormData) => {
-  console.log('Form submission started with data:', formData);
   setIsSubmitting(true);
 
   try {
-    console.log('Attempting to insert data into Supabase...');
     const { supabase } = await import('@/lib/supabase');
     const { error } = await supabase
       .from('contact_messages')
@@ -37,7 +33,6 @@ export const handleFormSubmit = async (e, formData, setIsSubmitting, setIsSubmit
       throw error;
     }
 
-    console.log('Successfully inserted data');
     setIsSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
     

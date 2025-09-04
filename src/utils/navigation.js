@@ -1,9 +1,23 @@
 // Navigation utility functions
 export const scrollToSection = (href) => {
-  const element = document.querySelector(href);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
+  // Add a small delay to ensure the mobile menu is closed first
+  setTimeout(() => {
+    const element = document.querySelector(href);
+    if (element) {
+      // Calculate the element's position
+      const elementTop = element.offsetTop;
+      
+      // Account for fixed navigation height (4rem = 64px)
+      const navHeight = 64;
+      const targetPosition = elementTop - navHeight;
+      
+      // Smooth scroll to the target position
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, 100); // Small delay to ensure mobile menu closes first
 };
 
 export const handleScroll = (setScrolled) => {

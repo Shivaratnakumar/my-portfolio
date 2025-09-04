@@ -50,7 +50,6 @@ const Projects = () => {
       )
     }
     
-    console.log(`Filter: ${activeFilter}, Projects: ${projects.length}, Filtered: ${filtered.length}`)
     setFilteredProjects(filtered)
   }, [projects, activeFilter])
 

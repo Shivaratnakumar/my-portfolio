@@ -26,7 +26,6 @@ const AdminMessages = () => {
   const [loginError, setLoginError] = useState('')
 
   useEffect(() => {
-    console.log('AdminMessages component mounted')
     // Check if user is already authenticated (from localStorage)
     const savedAuth = localStorage.getItem('admin_authenticated')
     if (savedAuth === 'true') {
@@ -171,7 +170,6 @@ const AdminMessages = () => {
         <div className="relative">
           <motion.button
             onClick={() => {
-              console.log('Admin button clicked')
               if (isAuthenticated) {
                 setIsVisible(true)
               } else {

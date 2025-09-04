@@ -99,44 +99,30 @@ export const insertSampleProjects = async (supabase) => {
 };
 
 export const getProjectsByCategory = (projects, category) => {
-  console.log('=== getProjectsByCategory DEBUG ===')
-  console.log('Category:', category)
-  console.log('Projects input:', projects)
-  
   if (category === 'All') {
-    console.log('Returning all projects')
     return projects;
   }
   
   if (category === 'Featured') {
-    console.log('Filtering for featured projects')
     const featuredProjects = projects.filter(project => {
-      console.log(`Checking project: ${project.title}`)
-      console.log(`Featured value: ${JSON.stringify(project.featured)} (type: ${typeof project.featured})`)
-      
       // Only return projects that are explicitly marked as featured
       const featured = project.featured;
       const isFeatured = featured === true;
       
-      console.log(`Is featured: ${isFeatured}`)
       return isFeatured;
     });
     
-    console.log('Featured projects found:', featuredProjects.length)
     return featuredProjects;
   }
   
-  console.log(`Filtering for category: ${category}`)
   const filteredProjects = projects.filter(project => {
     const techMatch = project.tech_stack.some(tech => 
       tech.toLowerCase().includes(category.toLowerCase())
     );
     const categoryMatch = project.category === category;
     
-    console.log(`Project: ${project.title}, Tech match: ${techMatch}, Category match: ${categoryMatch}`)
     return techMatch || categoryMatch;
   });
   
-  console.log(`Projects matching "${category}":`, filteredProjects.length)
   return filteredProjects;
 };
